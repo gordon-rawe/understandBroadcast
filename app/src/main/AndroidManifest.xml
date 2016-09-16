@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="example.broadcast.com.broadcastexample">
+
+    <permission android:name="example.broadcast.com.broadcastexample.PERMISSION_ORDER_BROADCAST" />
+    <uses-permission android:name="example.broadcast.com.broadcastexample.PERMISSION_ORDER_BROADCAST" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".StickyBroadcastActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <!--<activity android:name=".OrderBroadcastActivity">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.MAIN" />-->
+
+        <!--<category android:name="android.intent.category.LAUNCHER" />-->
+        <!--</intent-filter>-->
+        <!--</activity>-->
+
+        <!--<activity android:name=".MainActivity">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.MAIN" />-->
+
+        <!--<category android:name="android.intent.category.LAUNCHER" />-->
+        <!--</intent-filter>-->
+        <!--</activity>-->
+        <!--<receiver android:name=".broadcast.ExampleBroadcastReceiver">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="example.broadcast.com.broadcastexample.ACTION_BROADCAST_SEND" />-->
+        <!--</intent-filter>-->
+        <!--</receiver>-->
+        <receiver android:name=".broadcast.BroadcastReceiverOne">
+            <intent-filter android:priority="1000">
+                <action android:name="example.broadcast.com.broadcastexample.ACTION_ORDER_BROADCAST" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcast.BroadcastReceiverTwo">
+            <intent-filter android:priority="900">
+                <action android:name="example.broadcast.com.broadcastexample.ACTION_ORDER_BROADCAST" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcast.BroadcastReceiverThree">
+            <intent-filter android:priority="800">
+                <action android:name="example.broadcast.com.broadcastexample.ACTION_ORDER_BROADCAST" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcast.BroadcastReceiverSticky">
+            <intent-filter>
+                <action android:name="example.broadcast.com.broadcastexample.ACTION_STICKY_BROADCAST" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
